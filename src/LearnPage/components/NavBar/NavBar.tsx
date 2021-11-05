@@ -23,6 +23,7 @@ function NavBar() {
               <NavLink to="/LearnPage/browser" className={styles.navItem} activeStyle={{color: '#1890ff'}}>浏览器</NavLink>
               <NavLink to="/LearnPage/performance" className={styles.navItem} activeStyle={{color: '#1890ff'}}>性能优化</NavLink>
               <NavLink to="/LearnPage/micro" className={styles.navItem} activeStyle={{color: '#1890ff'}}>微前端</NavLink>
+              <NavLink to="/LearnPage/tool" className={styles.navItem} activeStyle={{color: '#1890ff'}}>生产力</NavLink>
               <NavLink to="/LearnPage/other" className={styles.navItem} activeStyle={{color: '#1890ff'}}>其他杂项</NavLink>
             </Col>
           </Row>

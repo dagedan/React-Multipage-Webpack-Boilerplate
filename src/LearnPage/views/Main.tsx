@@ -3,6 +3,7 @@ import queryString from 'query-string';
 import { changeHashTag } from '../store/dataSource'
 import NavBar from '../components/NavBar'
 import Core from './Core'
+import Tools from './Tools'
 
 import {
   BrowserRouter,
@@ -68,6 +69,9 @@ export default function Main({}: Props): React.ReactElement {
           </Route>
           <Route path="/LearnPage/micro">
             <Micro />
+          </Route>
+          <Route path="/LearnPage/tool">
+            <Tools />
           </Route>
           <Route path="/LearnPage/other">
             <Other />

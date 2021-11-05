@@ -10,8 +10,8 @@ import styles from './Core.module.css';
 import {elementPosition} from '@/utils/common';
 
 import DataType from './components/DataType';
-import TypeConversion from './components/TypeConversion';
-import TypeJudgment from './components/TypeJudgment';
+import DataTypeConversion from './components/DataTypeConversion';
+import DataTypeJudgment from './components/DataTypeJudgment';
 
 import { Desktop, Tablet, Mobile, Default} from '@/utils/responsive'
 
@@ -35,7 +35,6 @@ function Core() {
         refContainer.current.scrollTop = position - 102
       }
     }, 0);
-    console.log(refContainer.current.scrollTop)
     setChildrenDomScrollPos(Object.values(refContainer.current.children).map((element:any) => {
       return {id:element.id, y:elementPosition(element).y, offsetHeight: element.offsetHeight}
     }))
@@ -86,10 +85,10 @@ function Core() {
                   <DataType></DataType>
                 </div>
                 <div id='datatype2'>
-                  <TypeConversion></TypeConversion>
+                  <DataTypeConversion></DataTypeConversion>
                 </div>
                 <div id='datatype3'>
-                  <TypeJudgment></TypeJudgment>
+                  <DataTypeJudgment></DataTypeJudgment>
                 </div>
                 <div id='base1' style={{height: '700px'}}>this</div>
                 <div id='base2' style={{height: '700px'}}>闭包</div>
