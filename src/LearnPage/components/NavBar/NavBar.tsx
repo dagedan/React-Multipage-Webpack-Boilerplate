@@ -1,34 +1,55 @@
 import React from 'react';
-import {
-  NavLink,
-} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Row, Col } from 'antd';
 import styles from './NavBar.module.css';
 
-import { Desktop, Tablet, Mobile, Default} from '@/utils/responsive'
+import { Desktop, Tablet, Mobile, Default } from '@/utils/responsive'
+const menuList = [{
+  to: '/LearnPage/home',
+  name: '核心知识'
+}, {
+  to: '/LearnPage/frame',
+  name: '框架'
+}, {
+  to: '/LearnPage/react',
+  name: 'React'
+}, {
+  to: '/LearnPage/vue',
+  name: 'Vue'
+}, {
+  to: '/LearnPage/browser',
+  name: '浏览器'
+}, {
+  to: '/LearnPage/performance',
+  name: '性能优化'
+}, {
+  to: '/LearnPage/micro',
+  name: '微前端'
+}, {
+  to: '/LearnPage/tool',
+  name: '生产力'
+}, {
+  to: '/LearnPage/other',
+  name: '其他杂项'
+},]
 function NavBar() {
   return (
-      <Desktop>
-        <div>
-          <Row style={{display: 'flex'}} className={styles.nav}>
-            <Col span={4}>
-              <h1 style={{marginLeft: 20}}>知识体系</h1>
-            </Col>
-            <Col flex={1}></Col>
-            <Col>
-              <NavLink to="/LearnPage/home" className={styles.navItem} activeStyle={{color: '#1890ff'}}>核心知识 </NavLink>
-              <NavLink to="/LearnPage/frame" className={styles.navItem} activeStyle={{color: '#1890ff'}}>框架</NavLink>
-              <NavLink to="/LearnPage/react" className={styles.navItem} activeStyle={{color: '#1890ff'}}>React</NavLink>
-              <NavLink to="/LearnPage/vue" className={styles.navItem} activeStyle={{color: '#1890ff'}}>Vue</NavLink>
-              <NavLink to="/LearnPage/browser" className={styles.navItem} activeStyle={{color: '#1890ff'}}>浏览器</NavLink>
-              <NavLink to="/LearnPage/performance" className={styles.navItem} activeStyle={{color: '#1890ff'}}>性能优化</NavLink>
-              <NavLink to="/LearnPage/micro" className={styles.navItem} activeStyle={{color: '#1890ff'}}>微前端</NavLink>
-              <NavLink to="/LearnPage/tool" className={styles.navItem} activeStyle={{color: '#1890ff'}}>生产力</NavLink>
-              <NavLink to="/LearnPage/other" className={styles.navItem} activeStyle={{color: '#1890ff'}}>其他杂项</NavLink>
-            </Col>
-          </Row>
-        </div>
-      </Desktop>
+    <Desktop>
+      <div>
+        <Row style={{ display: 'flex' }} className={styles.nav}>
+          <Col span={4}>
+            <h1 style={{ marginLeft: 20 }}>知识体系</h1>
+          </Col>
+          <Col flex={1}></Col>
+          <Col>{
+            menuList.map(i => {
+              return <NavLink key={i.to} to={i.to} className={({ isActive }) => isActive ? styles.navItemActive : styles.navItem}>{i.name} </NavLink>
+            })
+          }
+          </Col>
+        </Row>
+      </div>
+    </Desktop>
   );
 }
 

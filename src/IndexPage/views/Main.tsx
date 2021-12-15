@@ -1,17 +1,13 @@
 import React from "react";
 import Home from './Home'
 import {
-  BrowserRouter as Routser,
-  Switch,
+  BrowserRouter,
+  Routes,
   Route,
   Link,
-  useRouteMatch,
-  useHistory,
-  useLocation,
-  useParams,
 } from "react-router-dom";
 
-interface Props {}
+interface Props { }
 
 function About() {
   return <h2>About1</h2>;
@@ -23,9 +19,9 @@ function Users() {
     <a href="/Page2">跳转到page2</a>
   </h2>;
 }
-export default function Main({}: Props): React.ReactElement {
+export default function Main({ }: Props): React.ReactElement {
   return (
-    <Routser>
+    <BrowserRouter>
       <div>
         <nav>
           <ul>
@@ -40,21 +36,17 @@ export default function Main({}: Props): React.ReactElement {
             </li>
           </ul>
         </nav>
-        <Switch>
-          <Route path="/IndexPage/about" exact>
-            <About />
+        <Routes>
+          <Route path="/IndexPage/about" element={<About />}>
           </Route>
-          <Route path="/IndexPage/users">
-            <Users />
+          <Route path="/IndexPage/users" element={<Users />}>
           </Route>
-          <Route path="/IndexPage">
-            <Home />
+          <Route path="/IndexPage" element={<Home />}>
           </Route>
-          <Route path="/">
-            <Home />
+          <Route path="/" element={<Home />}>
           </Route>
-        </Switch>
+        </Routes>
       </div>
-    </Routser>
+    </BrowserRouter>
   );
 }

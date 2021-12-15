@@ -52,12 +52,19 @@ const commonConfig = {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins:[require('autoprefixer')],
+                plugins: [require('autoprefixer')],
                 config: false,
               },
             },
-          }, 
+          },
         ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/, //
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+        }
       },
     ],
   },
@@ -67,7 +74,7 @@ const commonConfig = {
       '@': path.resolve(__dirname, "../src"),
     }
   },
-  
+
   plugins: [
     new ProvidePlugin({
       React: "react",
@@ -77,7 +84,7 @@ const commonConfig = {
 
 getEntry().forEach((pathname) => {
   let conf = {
-    filename: path.join(path.dirname(__dirname), "dist",  pathname, "index") + ".html",
+    filename: path.join(path.dirname(__dirname), "dist", pathname, "index") + ".html",
     template: path.join(
       path.dirname(__dirname),
       "src",
@@ -85,7 +92,8 @@ getEntry().forEach((pathname) => {
       "template",
       "index.html"
     ),
-    publicPath: "../",
+    publicPath: "/",
+    // publicPath: "../",
     chunks: ["manifest", "vendor", pathname],
   };
   commonConfig.plugins.push(new HtmlWebpackPlugin(conf));
