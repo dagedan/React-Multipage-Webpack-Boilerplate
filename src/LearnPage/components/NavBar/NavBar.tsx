@@ -1,6 +1,9 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 import { Row, Col } from 'antd';
+import Expand from '../assets/expand.png'
+import { toggle } from '../../store/dataSource'
+
 import styles from './NavBar.module.css';
 
 import { Desktop, Tablet, Mobile, Default } from '@/utils/responsive'
@@ -37,8 +40,9 @@ function NavBar() {
     <Desktop>
       <div>
         <Row style={{ display: 'flex' }} className={styles.nav}>
-          <Col span={4}>
-            <h1 style={{ marginLeft: 20 }}>知识体系</h1>
+          <Col span={4} style={{ display: 'flex', alignItems: 'center' }}>
+            <div style={{ marginLeft: 20, marginRight: 10, fontSize: 20, fontWeight: 900 }}>知识体系</div>
+            <img src={Expand} onClick={() => toggle()} alt="" className={styles.expand} />
           </Col>
           <Col flex={1}></Col>
           <Col>{

@@ -1,6 +1,5 @@
 import React from "react";
 import queryString from 'query-string';
-import { changeHashTag } from '../store/dataSource'
 import NavBar from '../components/NavBar'
 import Core from './Core'
 import Tools from './Tools'
@@ -39,7 +38,6 @@ function Other() {
 }
 export default function Main({ }: Props): React.ReactElement {
   const hash = queryString.parseUrl(location.href, { parseFragmentIdentifier: true });
-  changeHashTag(String(hash.fragmentIdentifier))
   return (
     <BrowserRouter>
       <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
@@ -63,8 +61,8 @@ export default function Main({ }: Props): React.ReactElement {
           </Route>
           <Route path="/LearnPage/other" element={<Other />}>
           </Route>
-          {/* <Route path="/LearnPage/home" element={<Navigate to="/" />}>
-          </Route> */}
+          <Route path="/LearnPage/home" element={<Navigate to="/LearnPage/home/datatype" />}>
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>

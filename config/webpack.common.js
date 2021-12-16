@@ -60,12 +60,15 @@ const commonConfig = {
         ],
       },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/, //
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-        }
-      },
+        test: /\.(png|jp(e*)g|svg)$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 8000, // Convert images < 8kb to base64 strings
+            name: '/[hash]-[name].[ext]'
+          }
+        }]
+      }
     ],
   },
   resolve: {

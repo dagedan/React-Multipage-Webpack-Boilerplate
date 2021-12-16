@@ -1,8 +1,7 @@
 import React from 'react';
-import { useToggle } from 'ahooks';
 import { Routes, Route, Outlet } from 'react-router-dom'
-import styles from './Core.module.css'
-// import { useStore } from 'effector-react'
+// import styles from './Core.module.css'
+import { useStore } from 'effector-react'
 import { LeftDrawerLayout } from './components/Layout'
 import SideMenu from './components/SideMenu';
 import DataType from './components/DataType';
@@ -10,6 +9,7 @@ import DataTypeConversion from './components/DataTypeConversion';
 import DataTypeJudgment from './components/DataTypeJudgment';
 import BasePointThis from './components/BasePointThis';
 import BasePointClosure from './components/BasePointClosure';
+import { $isExpand } from '../../store/dataSource'
 
 import { Desktop, Tablet, Mobile, Default } from '@/utils/responsive'
 interface Children {
@@ -18,7 +18,7 @@ interface Children {
   offsetHeight: number;
 }
 function Core() {
-  const [expand, { toggle }] = useToggle();
+  const expand = useStore($isExpand)
   return (
     <Routes>
       <Route path="/" element={<LeftDrawerLayout left={<SideMenu></SideMenu>} right={<Outlet />} expand={expand}></LeftDrawerLayout>}>
@@ -31,14 +31,6 @@ function Core() {
       </Route>
     </Routes>
   );
-  // return (
-  //   <div>
-  //     <div className={styles.container}>
-  //       <button className={styles.test} onClick={() => toggle()}>切换</button>
-  //       <LeftDrawerLayout left={<SideMenu></SideMenu>} right={<Outlet />} expand={expand}></LeftDrawerLayout>
-  //     </div>
-  //   </div>
-  // );
 }
 
 export default Core;

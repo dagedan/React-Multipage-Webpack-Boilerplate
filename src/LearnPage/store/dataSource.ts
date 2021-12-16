@@ -1,9 +1,12 @@
-import {restore, createEvent} from 'effector'
+import {createStore, createApi} from 'effector'
+import {useStore} from 'effector-react'
 
-export const changeHashTag = createEvent<string>()
-export const $hashTag = restore(changeHashTag, '')
+export const $isExpand = createStore<Boolean>(false)
 
+export const {toggle} = createApi($isExpand, {
+  toggle: state => !state,
+})
 
-$hashTag.watch(state => {
-  console.log('state:', state);
+$isExpand.watch(expand => {
+  console.log('state:', expand);
 })
