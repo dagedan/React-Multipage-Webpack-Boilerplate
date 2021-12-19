@@ -9,6 +9,8 @@ import DataTypeConversion from './components/DataTypeConversion';
 import DataTypeJudgment from './components/DataTypeJudgment';
 import BasePointThis from './components/BasePointThis';
 import BasePointClosure from './components/BasePointClosure';
+import BasePointLexical from './components/BasePointLexical';
+import BasePointHoisting from './components/BasePointHoisting';
 import { $isExpand } from '../../store/dataSource'
 
 import { Desktop, Tablet, Mobile, Default } from '@/utils/responsive'
@@ -28,6 +30,8 @@ function Core() {
         <Route path="judgment" element={<DataTypeJudgment />} />
         <Route path="this" element={<BasePointThis />} />
         <Route path="closure" element={<BasePointClosure />} />
+        <Route path="lexical" element={<BasePointLexical />} />
+        <Route path="hoisting" element={<BasePointHoisting />} />
       </Route>
     </Routes>
   );

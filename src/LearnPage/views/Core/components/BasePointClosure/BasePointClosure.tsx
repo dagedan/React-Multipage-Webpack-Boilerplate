@@ -3,7 +3,7 @@ import { Divider, Tag, Space } from 'antd'
 import ExecutionStrack from './assets/excutionstrack.png'
 import Env from './assets/env.png'
 import Way from './assets/way.png'
-import styles from './Closure.module.css'
+import styles from '../../Core.module.css'
 function BasePointClosure() {
   return (
     <div style={{ padding: 20 }}>
@@ -13,7 +13,7 @@ function BasePointClosure() {
       <article><strong>2</strong>.js引擎第一次遇到脚本时,会创建一个全局的执行上下文,并压入栈顶.当引擎遇到函数调用时,会创建函数的执行上下文,并压入栈顶.</article>
       <article><strong>3</strong>.js引擎会从栈顶开始执行被压入的执行上下文,当函数执行完毕后,执行上下文从栈顶弹出(先进后出LIFO).</article>
       <article><strong>4</strong>.下图展示了执行上下文压入执行栈顶和弹出执行栈顶的过程,可以明确结论:开始创建Global Execution Context并入栈,遇函数调用创建Function Execution Context,并压入栈顶,执行完毕后从执行栈中弹出,层层往下,直到全局执行上下文弹出执行栈为止. </article>
-      <img src={ExecutionStrack} className={styles.img} alt="" />
+      <img src={ExecutionStrack} className={styles.img} alt="执行栈的执行过程(先进后出)" />
       <br />
       <br />
       <h3>执行上下文 (Excution context)</h3>

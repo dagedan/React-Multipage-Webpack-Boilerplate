@@ -14,8 +14,8 @@ export const coreMenu = [
     children: [
       { title: 'this', key: 'base1', path: 'this' },
       { title: '闭包(Closure)', key: 'base2', path: 'closure' },
-      { title: '词法环境(Lexical)', key: 'base3', path: 'datatype1' },
-      { title: '变量提升(Hoisting)', key: 'base4', path: 'datatype1' }
+      { title: '词法环境(Lexical)', key: 'base3', path: 'lexical' },
+      { title: '变量提升(Hoisting)', key: 'base4', path: 'hoisting' }
     ]
   },
   {
