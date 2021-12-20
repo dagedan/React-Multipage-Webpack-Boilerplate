@@ -3,4 +3,5 @@ import "./css/index.css";
 import React from "react";
 import ReactDOM from "react-dom";
 
-ReactDOM.render(<h1><a href="/IndexPage">dev</a></h1>, document.getElementById("root"));
+// 冲突main
+ReactDOM.render(<h1><a href="/IndexPage">main</a></h1>, document.getElementById("root"));
