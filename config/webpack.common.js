@@ -46,6 +46,7 @@ const commonConfig = {
             options: {
               modules: {
                 auto: (resourcePath) => resourcePath.endsWith(".module.css"),
+                localIdentName: '[name]-[local]-[hash:base64:5]',
               },
             }
           }, {
